@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/game_state_text.gd" id="1_njbwm"]
+[ext_resource type="FontFile" uid="uid://owm1rbykg5a6" path="res://assets/font/zekton rg.otf" id="2_a651g"]
+
+[node name="GameStateText" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_njbwm")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.858824, 0.858824, 0.858824, 1)
+theme_override_fonts/font = ExtResource("2_a651g")
+theme_override_font_sizes/font_size = 72
+text = "SAMPLE TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true

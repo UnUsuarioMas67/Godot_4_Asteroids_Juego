@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj607k6yl2x5w"]
+
+[ext_resource type="Script" path="res://scenes/manager/game_progress_manager.gd" id="1_8ij3h"]
+[ext_resource type="PackedScene" uid="uid://d2y1wapeh21qt" path="res://scenes/ui/game_over_text.tscn" id="2_8nlnt"]
+[ext_resource type="PackedScene" uid="uid://8klupa2erpww" path="res://scenes/ui/game_start_text.tscn" id="2_cjusj"]
+
+[node name="GameProgressManager" type="Node"]
+script = ExtResource("1_8ij3h")
+game_start_scene = ExtResource("2_cjusj")
+game_over_scene = ExtResource("2_8nlnt")

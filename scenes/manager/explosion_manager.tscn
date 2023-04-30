@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://tpcygdc21vya"]
+
+[ext_resource type="Script" path="res://scenes/manager/explosion_manager.gd" id="1_3jka1"]
+[ext_resource type="PackedScene" path="res://scenes/game_objects/effects/explosion.tscn" id="2_r8fq7"]
+
+[node name="ExplosionManager" type="Node2D"]
+script = ExtResource("1_3jka1")
+explosion_effect_scene = ExtResource("2_r8fq7")

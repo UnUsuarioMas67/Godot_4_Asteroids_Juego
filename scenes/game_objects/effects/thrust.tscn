@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4iqh8tt52x6u"]
+
+[ext_resource type="PackedScene" path="res://scenes/game_objects/effects/player_thrust_effect.tscn" id="1_8gdxa"]
+[ext_resource type="Script" path="res://scenes/game_objects/effects/thrust.gd" id="1_kcmw5"]
+[ext_resource type="AudioStream" uid="uid://dg7qeha50vp6d" path="res://assets/sound/thrust.wav" id="3_h5afc"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tlmyk"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 25.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[node name="Thrust" type="Node2D"]
+script = ExtResource("1_kcmw5")
+
+[node name="Particles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 14)
+process_material = SubResource("ParticleProcessMaterial_tlmyk")
+lifetime = 0.66
+
+[node name="ThrustGfx" type="Line2D" parent="."]
+points = PackedVector2Array(7, 0, 0, 14, -7, 0)
+width = 2.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="PlayerThrustEffect" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_8gdxa")]
+target = NodePath("../ThrustGfx")
+
+[node name="ThrustSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_h5afc")
+volume_db = -5.943

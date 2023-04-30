@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_ln8xl"]
+[ext_resource type="FontFile" uid="uid://owm1rbykg5a6" path="res://assets/font/zekton rg.otf" id="2_dwyg5"]
+
+[node name="Hud" type="CanvasLayer" groups=["hud"]]
+script = ExtResource("1_ln8xl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 100
+
+[node name="LivesLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.858824, 0.858824, 0.858824, 1)
+theme_override_fonts/font = ExtResource("2_dwyg5")
+theme_override_font_sizes/font_size = 48
+text = "***"
+text_overrun_behavior = 1
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.858824, 0.858824, 0.858824, 1)
+theme_override_fonts/font = ExtResource("2_dwyg5")
+theme_override_font_sizes/font_size = 48
+text = "000000000"
+horizontal_alignment = 2
+visible_characters = 9

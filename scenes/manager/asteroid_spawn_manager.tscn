@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/manager/asteroid_spawn_manager.gd" id="1_jhbtj"]
+[ext_resource type="PackedScene" uid="uid://myn8lht3wf1j" path="res://scenes/game_objects/non_player/asteroid/asteroid_large.tscn" id="2_2mfeh"]
+
+[node name="AsteroidSpawner" type="Node"]
+script = ExtResource("1_jhbtj")
+asteroid_scene = ExtResource("2_2mfeh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true

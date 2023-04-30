@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/game_objects/effects/explosion.gd" id="1_bxwp6"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ma4ge"]
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = -100.0
+linear_accel_max = -50.0
+scale_min = 0.9
+scale_max = 1.5
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_bxwp6")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 45
+process_material = SubResource("ParticleProcessMaterial_ma4ge")
+lifetime = 0.8
+explosiveness = 0.9

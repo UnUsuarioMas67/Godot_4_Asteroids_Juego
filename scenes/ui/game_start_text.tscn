@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://8klupa2erpww"]
+
+[ext_resource type="PackedScene" uid="uid://cd38ds5vkq855" path="res://scenes/ui/game_state_text.tscn" id="1_xo4st"]
+
+[node name="GameStartText" instance=ExtResource("1_xo4st")]
+
+[node name="Label" parent="MarginContainer" index="0"]
+text = "GAME START"
+
+[node name="Timer" parent="." index="1"]
+wait_time = 1.5

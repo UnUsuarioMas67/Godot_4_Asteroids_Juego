@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" uid="uid://cemqvyxomy5lw" path="res://scenes/game_objects/bullet/bullet_gfx.tscn" id="1_dmf41"]
+[ext_resource type="Script" path="res://scenes/game_objects/bullet/bullet.gd" id="1_qbope"]
+[ext_resource type="PackedScene" uid="uid://120swbisqhkp" path="res://scenes/main/screen_wrap.tscn" id="3_d6cx5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mklld"]
+radius = 1.0
+height = 8.0
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_qbope")
+
+[node name="BulletGfx" parent="." instance=ExtResource("1_dmf41")]
+points = PackedVector2Array(3, 0, -3, 0)
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 0.85
+autostart = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mklld")
+
+[node name="ScreenWrap" parent="." instance=ExtResource("3_d6cx5")]
+wrap_radius = 8

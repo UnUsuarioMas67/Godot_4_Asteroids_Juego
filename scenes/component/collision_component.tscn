@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://0vcte5dcai77"]
+
+[ext_resource type="Script" path="res://scenes/component/collision_component.gd" id="1_nrcar"]
+
+[node name="CollisionComponent" type="Area2D"]
+script = ExtResource("1_nrcar")
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 2.0

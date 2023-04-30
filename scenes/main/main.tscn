@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1aw6q0we3nf7"]
+
+[ext_resource type="PackedScene" uid="uid://dgv8fwk32pety" path="res://scenes/game_objects/player/player.tscn" id="1_lp73r"]
+[ext_resource type="PackedScene" path="res://scenes/manager/asteroid_spawn_manager.tscn" id="1_tjjvl"]
+[ext_resource type="PackedScene" path="res://scenes/manager/lives_manager.tscn" id="2_4jd80"]
+[ext_resource type="PackedScene" uid="uid://urynxna0yi2" path="res://scenes/manager/score_manager.tscn" id="2_65sky"]
+[ext_resource type="PackedScene" uid="uid://dj607k6yl2x5w" path="res://scenes/manager/game_progress_manager.tscn" id="2_pp5nu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="5_bsb4l"]
+
+[node name="Main" type="Node"]
+
+[node name="GameProgressManager" parent="." instance=ExtResource("2_pp5nu")]
+
+[node name="LivesManager" parent="." instance=ExtResource("2_4jd80")]
+
+[node name="ScoreManager" parent="." instance=ExtResource("2_65sky")]
+
+[node name="AsteroidSpawnManager" parent="." instance=ExtResource("1_tjjvl")]
+
+[node name="Hud" parent="." node_paths=PackedStringArray("score_manager", "lives_manager") instance=ExtResource("5_bsb4l")]
+score_manager = NodePath("../ScoreManager")
+lives_manager = NodePath("../LivesManager")
+
+[node name="Entities" type="Node2D" parent="." groups=["entities_layer"]]
+
+[node name="Player" parent="Entities" instance=ExtResource("1_lp73r")]
+position = Vector2(576, 427)
+
+[node name="Effects" type="Node2D" parent="." groups=["effects_layer"]]

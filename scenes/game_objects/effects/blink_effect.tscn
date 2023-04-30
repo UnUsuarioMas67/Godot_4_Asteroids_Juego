@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/game_objects/effects/blink_effect.gd" id="1_vekro"]
+
+[node name="BlinkEffect" type="Node"]
+script = ExtResource("1_vekro")

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://boa7txbxe1c7l"]
+
+[ext_resource type="PackedScene" uid="uid://bdffajuyevso2" path="res://scenes/game_objects/non_player/asteroid/asteroid.tscn" id="1_tiv7x"]
+[ext_resource type="PackedScene" path="res://scenes/game_objects/non_player/asteroid/asteroid_small.tscn" id="2_vhn6b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pl8ub"]
+radius = 29.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f8wwq"]
+radius = 22.0227
+
+[node name="AsteroidMedium" instance=ExtResource("1_tiv7x")]
+smaller_asteroid_scene = ExtResource("2_vhn6b")
+score_value = 150
+min_speed = 50
+max_speed = 185
+explosion_sound = "Medium"
+
+[node name="AsteroidGfx" parent="." index="0"]
+points = PackedVector2Array(3, -22, -9, -21, -22, -2, -16, 17, -2, 22, 17, 21, 22, 10, 20, -13, 6, -3, -5, -7, 3, -22)
+width = 2.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = true
+shape = SubResource("CircleShape2D_pl8ub")
+
+[node name="CollisionShape2D" parent="CollisionComponent" index="1"]
+shape = SubResource("CircleShape2D_f8wwq")
+
+[node name="ScreenWrap" parent="." index="3"]
+wrap_radius = 29
+
+[node name="ExplosionManager" parent="." index="4"]
+explosion_scale = 0.9

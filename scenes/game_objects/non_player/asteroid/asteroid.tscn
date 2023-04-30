@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdffajuyevso2"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/non_player/asteroid/asteroid.gd" id="1_4skr3"]
+[ext_resource type="PackedScene" uid="uid://0vcte5dcai77" path="res://scenes/component/collision_component.tscn" id="2_7rlmq"]
+[ext_resource type="PackedScene" uid="uid://120swbisqhkp" path="res://scenes/main/screen_wrap.tscn" id="3_khsnd"]
+[ext_resource type="PackedScene" uid="uid://tpcygdc21vya" path="res://scenes/manager/explosion_manager.tscn" id="4_0savu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iiowm"]
+radius = 51.0882
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yhmr1"]
+radius = 45.0
+
+[node name="Asteroid" type="CharacterBody2D" groups=["asteroid"]]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_4skr3")
+
+[node name="AsteroidGfx" type="Line2D" parent="."]
+points = PackedVector2Array(10, -43, -7, -16, -24, -41, -46, 2, -35, 32, -6, 46, 32, 36, 46, 8, 43, -19, 31, -36, 10, -43)
+width = 4.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_iiowm")
+disabled = true
+
+[node name="CollisionComponent" parent="." instance=ExtResource("2_7rlmq")]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionComponent"]
+shape = SubResource("CircleShape2D_yhmr1")
+
+[node name="ScreenWrap" parent="." instance=ExtResource("3_khsnd")]
+
+[node name="ExplosionManager" parent="." node_paths=PackedStringArray("collision_component") instance=ExtResource("4_0savu")]
+collision_component = NodePath("../CollisionComponent")

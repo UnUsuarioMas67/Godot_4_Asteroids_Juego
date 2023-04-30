@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/manager/lives_manager.gd" id="1_yj6wn"]
+[ext_resource type="PackedScene" uid="uid://0tui3bxket00" path="res://scenes/game_objects/player/player.tscn" id="2_m8pr1"]
+
+[node name="LivesManager" type="Node"]
+script = ExtResource("1_yj6wn")
+player_scene = ExtResource("2_m8pr1")
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true

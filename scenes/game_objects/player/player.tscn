@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgv8fwk32pety"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/player/player.gd" id="1_lawcl"]
+[ext_resource type="PackedScene" uid="uid://33ojn0xdnk77" path="res://scenes/game_objects/player/player_gfx.tscn" id="2_w8oav"]
+[ext_resource type="PackedScene" uid="uid://brmjxwey3uunk" path="res://scenes/game_objects/bullet/bullet_spawner.tscn" id="3_2nojb"]
+[ext_resource type="PackedScene" uid="uid://c4iqh8tt52x6u" path="res://scenes/game_objects/effects/thrust.tscn" id="3_6nl4e"]
+[ext_resource type="PackedScene" uid="uid://0vcte5dcai77" path="res://scenes/component/collision_component.tscn" id="4_76lpu"]
+[ext_resource type="PackedScene" path="res://scenes/game_objects/effects/blink_effect.tscn" id="5_pfv0x"]
+[ext_resource type="PackedScene" uid="uid://120swbisqhkp" path="res://scenes/main/screen_wrap.tscn" id="6_u36f2"]
+[ext_resource type="PackedScene" uid="uid://tpcygdc21vya" path="res://scenes/manager/explosion_manager.tscn" id="7_esmp4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_feqbw"]
+radius = 23.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8us3u"]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_lawcl")
+
+[node name="BlinkEffect" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_pfv0x")]
+target = NodePath("..")
+
+[node name="Thrust" parent="." instance=ExtResource("3_6nl4e")]
+position = Vector2(0, 7)
+
+[node name="PlayerGfx" parent="." instance=ExtResource("2_w8oav")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_feqbw")
+
+[node name="BulletSpawner" parent="." instance=ExtResource("3_2nojb")]
+position = Vector2(0, -22)
+collision_layer = 1
+shoot_time = 0.23
+
+[node name="CollisionComponent" parent="." instance=ExtResource("4_76lpu")]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionComponent"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_8us3u")
+
+[node name="ScreenWrap" parent="." instance=ExtResource("6_u36f2")]
+wrap_radius = 23
+
+[node name="ExplosionManager" parent="." node_paths=PackedStringArray("collision_component") instance=ExtResource("7_esmp4")]
+collision_component = NodePath("../CollisionComponent")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2y1wapeh21qt"]
+
+[ext_resource type="PackedScene" uid="uid://cd38ds5vkq855" path="res://scenes/ui/game_state_text.tscn" id="1_k5llr"]
+
+[node name="GameOverText" instance=ExtResource("1_k5llr")]
+
+[node name="Label" parent="MarginContainer" index="0"]
+text = "GAME OVER"
+
+[node name="Timer" parent="." index="1"]
+wait_time = 2.5
