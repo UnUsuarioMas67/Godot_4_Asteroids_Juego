@@ -30,6 +30,10 @@ gdscript/warnings/unused_parameter=0
 window/size/viewport_height=854
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom_font="res://assets/font/zekton rg.otf"
+
 [input]
 
 turn_left={
