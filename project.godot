@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Events="*res://scenes/autoload/events.tscn"
 SoundPlayer="*res://scenes/autoload/sound_player.tscn"
 SoundEffect="*res://scenes/autoload/sound_effect.gd"
+HighScoreData="*res://scenes/autoload/high_score_data.tscn"
 
 [debug]
 
