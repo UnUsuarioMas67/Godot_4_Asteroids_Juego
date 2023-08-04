@@ -4,6 +4,9 @@ extends CanvasLayer
 func _ready():
 	%PlayButton.pressed.connect(on_play_button_pressed)
 	%ExitButton.pressed.connect(on_exit_button_pressed)
+	
+	var current_high_score = HighScoreData.save_data["high_score"]
+	%HighScore.text = "High Score: " + "%09d" % current_high_score
 
 
 func on_play_button_pressed():

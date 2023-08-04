@@ -91,7 +91,8 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_7qafi")
 text = "Exit
 "
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HighScore" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "High Score: 000000000"
